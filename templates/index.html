@@ -3,29 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YogiYo</title>
   <link rel="stylesheet" href="../static/style.css">
-  <div class="inner">
-    <nav id="nav" style="font-family:verdana;">
-  <a href="/" style="color:#FFFFFF">PREDICTIONS </a>
-  <a href="/predictions" style="color:#FFFFFF" >ABOUT</a>
-  </nav>
-</div>
+  <div class="inner"></div>
+  <div><a href="/prediction" style="width: 10px"><indexbutton style="top:10px;" >About</indexbutton></a></div>
 </head>
-  <body>
-  <div class="container">
-    <img src="../static/S1.png" alt="Godess" class="logo" align="right">
-  </div>
-    <h1>Yoga Pose Classifier</h1>
-
-    <form class="p-3 text-control" action='/' , method="POST"enctype="multipart/form-data">
-      <input class="form-control" type="file" name="imagefile">
-      <input class="btn btn-primary mt-3" type="submit" value="Predict Image">
+<body>
+  <h1 style="width:1200px; padding-left:50px; font-size:70px;"> Welcome to YogiYo</h1>
+  <div class ="container">
+    <form action='/' , method="POST" enctype="multipart/form-data">
+      <img src="static/S1.png" style="margin-left:800px; width :300px;">
+      <input class="btn btn2" type="file" name="imagefile">
+      <input class="btn btn1" type="submit" value="Predict Image">
     </form>
     {% if prediction %}
     <p class="test-center"> The pose is a {{prediction}}</p>
     {% endif %}
+  </div>
 </head>
-
-  </body>
+</body>
 <footer>&copy; Copyright & Stuff 2021. By Hanane, Virginie and Veronica. Made With ❤️ & a lot of 💧.</footer>
 </html>
