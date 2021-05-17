@@ -40,7 +40,7 @@ def predict():
 
     return render_template("index.html", prediction=pose, )
 
-@app.route("/predictions", methods=["GET"])
+@app.route("/prediction", methods=["GET"])
 def about():
     return render_template("sucess.html")
 if __name__ == "__main__":
