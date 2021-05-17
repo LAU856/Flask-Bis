@@ -1,8 +1,8 @@
 from flask import Flask, render_template,request
 import numpy as np
 import tensorflow as tf
-from tf.keras.preprocessing import image
-from tf.keras.models import load_model
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.models import load_model
 
 
 app = Flask(__name__)
