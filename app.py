@@ -1,12 +1,14 @@
 from flask import Flask, render_template,request
 import numpy as np
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.models import load_model
+import tensorflow as tf
+from tf.keras.preprocessing import image
+from tf.keras.models import load_model
 
 
 app = Flask(__name__)
 
-classifier = load_model('Final_Yoga_pose_classifier.h5')
+classifier = tf.keras.models.load_model('saved_model/model_classifier')
+#classifier = load_model('Final_Yoga_pose_classifier.h5')
 
 @app.route("/", methods=["GET"])
 def index():
