@@ -13,10 +13,12 @@ classifier = tf.keras.models.load_model('saved_model/model_classifier')
 @app.route("/", methods=["GET"])
 def index():
     return render_template("index.html")
+
+
 @app.route("/", methods=["POST"])
 def predict():
     imagefile = request.files["imagefile"]
-    image_path ="./static/" + imagefile.filename
+    image_path = "./static/" + imagefile.filename
     imagefile.save(image_path)
 
     img = image.load_img(image_path, target_size=(150, 150))
@@ -24,9 +26,9 @@ def predict():
     x = np.expand_dims(x, axis=0)
 
     images = np.vstack([x])
-    result = classifier.predict(images,batch_size=10) #return array
+    result = classifier.predict(images, batch_size=10)  # return array
     if result[0][0] == 1:
-        pose = 'Downdog' #predictions
+        pose = 'Downdog'  # predictions
     elif result[0][1] == 1:
         pose = 'Goddess'
     elif result[0][2] == 1:
@@ -35,8 +37,11 @@ def predict():
         pose = 'Tree'
     elif result[0][4] == 1:
         pose = 'Warrior'
-    
-    return render_template("index.html", prediction=pose,)
 
+    return render_template("index.html", prediction=pose, )
+
+@app.route("/predictions", methods=["GET"])
+def about():
+    return render_template("sucess.html")
 if __name__ == "__main__":
     app.run(debug=True)
